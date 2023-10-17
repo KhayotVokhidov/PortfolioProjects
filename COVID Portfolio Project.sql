@@ -19,7 +19,7 @@ order by 1,2
 
 
 --Looking at Total Cases vs Total Deaths in Uzbekistan
---Shows likelihood of dying if you contact with covid
+--Shows the likelihood of dying if you contact with covid
 
 select Location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as DeathPercentage
 from PortfolioProject. .CovidDeaths
@@ -28,13 +28,8 @@ and continent is not null
 order by 1,2
 
 
--- Lokking at Total cases vs Population in Uzbekistan
--- Shows what percentage of population got Covid
-
-select Location, date, population, total_cases, (total_cases/population)*100 as DeathPercentage
-from PortfolioProject. .CovidDeaths
-where Location like '%uzbekistan%'
-order by 1,2
+-- Looking at Total cases vs Population in Uzbekistan
+-- Shows what percentage of the population got Covid
 
 select Location, date, population, total_cases, (total_cases/population)*100 as PercentPopulationInfected 
 from PortfolioProject. .CovidDeaths
@@ -42,7 +37,7 @@ where Location like '%uzbekistan%'
 order by 1,2
 
 
---Looking at Countries with Highest Infection Rate compared to Population
+--Looking at Countries with the Highest Infection Rate compared to the Population
 
 select Location, Population, MAX(total_cases) as HighestInfectionCount, MAX((total_cases/population))*100 as PercentPopulationInfected
 from PortfolioProject. .CovidDeaths
